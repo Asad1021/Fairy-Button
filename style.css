@@ -1,0 +1,161 @@
+/* Your existing CSS remains the same */
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background: radial-gradient(circle at center, #0a0a23, #000000);
+}
+
+.cool-btn {
+  background: linear-gradient(135deg, #4b0082 0%, #1a1a40 100%);
+  color: #e0e0ff;
+  border: none;
+  border-radius: 50px;
+  padding: 18px 48px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(75, 0, 130, 0.6);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+}
+
+.cool-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(224, 224, 255, 0.3), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: 50px;
+}
+
+.cool-btn:hover::before {
+  opacity: 1;
+}
+
+.cool-btn:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(75, 0, 130, 0.8);
+  cursor: url('https://cur.cursors-4u.net/user/use-1/use160.cur'), pointer;
+}
+
+.cool-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 5px 15px rgba(75, 0, 130, 0.4);
+}
+
+/* Existing star burst CSS */
+.star {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(45deg, #fff, #ffd700);
+  border-radius: 50%;
+  box-shadow: 0 0 20px 8px rgba(255, 215, 0, 0.9);
+  animation: star-burst 800ms ease-out forwards;
+  pointer-events: none;
+  z-index: 100;
+}
+
+
+.star::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 14px;
+  background: white;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+.star::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 3px;
+  background: white;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+@keyframes star-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1.2) rotate(90deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(0) rotate(360deg);
+  }
+}
+
+/* NEW: Page sparkle trail effect */
+/* Updated page sparkle with quick fade */
+.page-sparkle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle, #fffacd, #ffd700);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8);
+  pointer-events: none;
+  animation: sparkle-fade 1500ms ease-out forwards;
+  z-index: 9999;
+}
+
+.page-sparkle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 8px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+.page-sparkle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 1px;
+  background: #fff;
+  transform: translate(-50%, -50%);
+  border-radius: 1px;
+}
+
+@keyframes sparkle-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  30% {
+    opacity: 0.6;
+    transform: scale(1.1) rotate(120deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.2) rotate(360deg);
+  }
+}
